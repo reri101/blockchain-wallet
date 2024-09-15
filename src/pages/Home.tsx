@@ -2,10 +2,12 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { setAddress, setNetwork } from "../redux/walletSlice";
 import { connectWalletAndNetwork } from "../ethereum";
+import { useNavigate } from "react-router-dom";
 import bgImage from "../assets/bg.jpg";
 
 const ConnectWallet: React.FC = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [isConnecting, setIsConnecting] = useState(false);
 
   const connectWallet = async () => {
@@ -19,6 +21,8 @@ const ConnectWallet: React.FC = () => {
 
       const networkInfo = await signer.provider?.getNetwork();
       dispatch(setNetwork(networkInfo?.name || "unknown"));
+
+      navigate("/info");
     } catch (error: any) {
       if (error.message.includes("rejected")) {
         alert("You rejected the connection request. Please try again.");
