@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../redux/store";
 import {
+  disconnectWallet,
   fetchBalances,
   getAccountDetails,
   handleAccountChange,
@@ -52,20 +53,9 @@ const WalletInfo: React.FC = () => {
     }
   };
 
-  const disconnectWallet = async () => {
-    await window.ethereum.request({
-      method: "wallet_revokePermissions",
-      params: [{ eth_accounts: {} }],
-    });
-    dispatch(setAddress(null));
-    dispatch(setNetwork(""));
-    navigate("/");
-  };
-
   const handleAccountsChanged = async (accounts: string[]) => {
     if (accounts.length > 0) {
       const newAddress = accounts[0];
-      console.log("New address detected:", newAddress);
       await handleAccountChange(
         newAddress,
         (address) => dispatch(setAddress(address)),
@@ -123,7 +113,7 @@ const WalletInfo: React.FC = () => {
         }}
       ></div>
       <button
-        onClick={disconnectWallet}
+        onClick={() => disconnectWallet(dispatch, navigate)}
         className="absolute top-2 right-2 ml-4 bg-red-500 bg-opacity-80 border-2 border-red-500 text-white font-bold py-2 px-4 rounded hover:bg-red-700 transition duration-300"
       >
         Disconnect Wallet
