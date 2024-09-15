@@ -1,46 +1,121 @@
-# Getting Started with Create React App
+# Blockchain Wallet
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Blockchain Wallet is a decentralized application (dApp) that allows users to manage and transfer Ethereum and ERC-20 token (USDC). Built with React and TypeScript, it integrates withetaMask for wallet interactions and uses Redux for state management.
 
-## Available Scripts
+## Technologies
 
-In the project directory, you can run:
+- **Implementation in React:** The user interface is built using React to provide a dynamic and responsive experience.
+- **Using Redux Toolkit:** State management is handled using Redux Toolkit to efficiently manage application state.
+- **Tailwind CSS:** The application uses Tailwind CSS for styling and layout, providing a clean and customizable design.
+- **Ethers.js:** Communication with the Ethereum blockchain is facilitated using Ethers.js.
+- **TypeScript:** TypeScript is used to add type safety and improve code quality.
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- **Connect to MetaMask:** Seamlessly connect your MetaMask wallet to the app.
+- **Switch Networks:** Automatically switch to the Sepolia test network.
+- **Transfer ETH:** Send Ether to other Ethereum addresses.
+- **Transfer ERC-20 Token:** Send ERC-20 token such as USDC to other addresses.
+- **View Balances:** Check balances for ETH and ERC-20 token.
+- **Disconnect Wallet:** Revoke wallet permissions and disconnect from the app.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Prerequisites
 
-### `npm test`
+- Node.js (v14 or higher)
+- npm or yarn
+- MetaMask installed in your browser
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Installation
 
-### `npm run build`
+1. **Clone the repository:**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+   ```bash
+   git clone https://github.com/reri101/blockchain-wallet.git
+   cd blockchain-wallet
+   ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. **Install dependencies:**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+   Using npm:
 
-### `npm run eject`
+   ```bash
+   npm install
+   ```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+   Using yarn:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+   ```bash
+   yarn install
+   ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+3. **Run the application:**
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+   Using npm:
 
-## Learn More
+   ```bash
+   npm start
+   ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+   Using yarn:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+   ```bash
+   yarn start
+   ```
+
+   This will start the development server and open the application in your default web browser.
+
+## Usage
+
+1. **Connecting Wallet:**
+
+   - Click the \"Connect Wallet\" button to connect your MetaMask wallet.
+   - The app will automatically switch to the Sepolia test network if needed.
+
+2. **Viewing Wallet Information:**
+
+   - Navigate to the \"Wallet Information\" section to view your connected wallet's details.
+   - The section displays your wallet address, current network, ETH balance, and USDC balance.
+   - You can disconnect your wallet from this section if needed by clicking the \"Disconnect Wallet\" button.
+   - If no wallet is connected, a prompt will instruct you to connect your wallet.
+
+3. **Transferring ETH:**
+
+   - Navigate to the \"Transfer ETH\" section.
+   - Enter the recipient address and amount of ETH to transfer.
+   - Click \"Transfer ETH\" to complete the transaction.
+
+4. **Transferring ERC-20 Token:**
+
+   - Navigate to the \"Transfer USDC\" section.
+   - Enter the token contract address, recipient address, and amount of tokens to transfer.
+   - Click \"Transfer Token\" to complete the transaction.
+
+5. **Disconnecting Wallet:**
+   - Click the \"Disconnect Wallet\" button to revoke permissions and disconnect from MetaMask.
+
+## Configuration
+
+Update the following constants in `src/ethereum.ts` to configure the application:
+
+- `TARGET_NETWORK_ID`: The network ID for the target Ethereum network (e.g., Sepolia test network).
+- `USDC_CONTRACT_ADDRESS`: The contract address for the ERC-20 token (USDC).
+
+## Screenshots
+
+Here are some screenshots of the application in action:
+
+![home page](image.png)
+![switch network](image-1.png)
+![chooseAccount](Bez tytułu-1.png)
+![wallet info](image-2.png)
+![transfer page](image-3.png)
+![confirm tranzactio](Bez tytułu2.png)
+![tranzaction success](image-5.png)
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Contact
+
+If you have any questions or suggestions, please feel free to contact me.

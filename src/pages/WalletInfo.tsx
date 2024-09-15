@@ -169,7 +169,7 @@ const WalletInfo: React.FC = () => {
                 className="mt-4 bg-green-500 text-white font-bold py-2 px-4 rounded hover:bg-green-700 transition duration-300"
                 onClick={() => navigate("/transfer")}
               >
-                Transfer tokens
+                Transfer
               </button>
             </div>
           </>
