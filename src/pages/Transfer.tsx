@@ -40,7 +40,7 @@ const Transfer: React.FC = () => {
     try {
       await sendTransaction(ethAddress, ethAmount);
       alert("ETH Transferred!");
-      fetchBalances(); // Refresh balances after transfer
+      fetchBalances();
     } catch (error) {
       console.error("Error transferring ETH:", error);
       alert("Error transferring ETH. Please check the console for details.");
@@ -57,6 +57,8 @@ const Transfer: React.FC = () => {
       return;
     }
 
+    setErc20ContractAddress(USDC_CONTRACT_ADDRESS);
+
     try {
       const balance = await getTokenBalance(erc20ContractAddress, erc20Address);
 
@@ -67,7 +69,7 @@ const Transfer: React.FC = () => {
 
       await sendToken(erc20ContractAddress, erc20Address, erc20Amount);
       alert("Token Transferred!");
-      fetchBalances(); // Refresh balances after transfer
+      fetchBalances();
     } catch (error) {
       console.error("Error transferring token:", error);
       alert("Error transferring token. Please check the console for details.");
@@ -90,7 +92,7 @@ const Transfer: React.FC = () => {
   const checkWalletConnection = async () => {
     try {
       await getAccountDetails();
-      await fetchBalances(); // Fetch initial balances
+      await fetchBalances();
     } catch (error) {
       console.error("Error checking wallet connection:", error);
       navigate("/");
@@ -177,13 +179,6 @@ const Transfer: React.FC = () => {
               </span>
             )}
           </div>
-          <input
-            type="text"
-            value={erc20ContractAddress}
-            onChange={(e) => setErc20ContractAddress(e.target.value)}
-            className="mb-4 p-2 border border-gray-300 rounded w-full"
-            placeholder="USDC Token Contract Address"
-          />
           <input
             type="text"
             value={erc20Address}
